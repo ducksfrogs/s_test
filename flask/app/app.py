@@ -10,7 +10,7 @@ dbname = 'test2'
 password = '0310'
 conn = psycopg2.connect(" user="+users+" dbname="+dbname+" password="+password)
 cur = conn.cursor()
-cur.exectute('select * from actor')
+cur.execute('select * from actor')
 results = cur.fetchall()
 
 @app.route("/")
