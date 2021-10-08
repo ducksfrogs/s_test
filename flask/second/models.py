@@ -13,4 +13,9 @@ class EmployeeModel(db.Model):
 
     def __init__(self, employee_id, name, age, position):
         self.employee_id = employee_id
-        self.name = 
+        self.name = name
+        self.age = age
+        self.position = position
+
+    def __repr__(self):
+        return f"{self.name}:{self.employee_id}"
