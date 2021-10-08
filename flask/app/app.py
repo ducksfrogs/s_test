@@ -1,8 +1,17 @@
 from flask import Flask, render_template, request
-
+import psycopg2
+from psycopg2._psycopg import *
 
 app = Flask(__name__)
 
+
+users = 'postgres'
+dbname = 'test2'
+password = '0310'
+conn = psycopg2.connect(" user="+users+" dbname="+dbname+" password="+password)
+cur = conn.cursor()
+cur.exectute('select * from actor')
+results = cur.fetchall()
 
 @app.route("/")
 # def hello():
@@ -12,8 +21,8 @@ app = Flask(__name__)
 @app.route("/index")
 def index():
     name = request.args.get("name")
-    okyo = ["shikisoku", "panda",'lion','Momonga']
-    return render_template("index.html", name=name, okyo=okyo)
+
+    return render_template("index.html", name=name, results=results)
 
 
 
