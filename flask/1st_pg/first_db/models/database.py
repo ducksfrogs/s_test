@@ -1,12 +1,19 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-import os
 
 
-database_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'onegai.db')
-engine = create_engine('sqlite:///'+database_file, convert_unicode=True)
-db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+DATABASE = 'postgresql'
+USER ='postgres'
+PASSWORD = 'yama2376'
+HOST = 'localhost'
+PORT = '5432'
+DB_NAME = 'test'
+
+CONNECT_STR = '{}://{}:{}@{}:{}/{}'.format(DATABASE, USER, PASSWORD, HOST, PORT, DB_NAME)
+
+ENGINE = create_engine(CONNECT_STR)
+db_session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=ENGINE))
 Base = declarative_base()
 Base.query = db_session.query_property()
 
