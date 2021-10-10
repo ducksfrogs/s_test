@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ name }}</title>
+</head>
+<body>
+<h1>web app first</h1>
+{% if name == "kiyokiyo" %}
+  <h1>Special{{name}}shurain</h1>
+{% elif name %}
+  <h1>{{name}}shurain</h1>
+{% else %}
+  <h1>tadano jinja</h1>
+{% endif %}
+<form action="/index" method="post">
+  <input type="text" name="name" placeholder="Enter name">
+  <input type="submit" value="Submit">
+</form>
+<img src="../static/images/jinja.png" alt="torii">
+
+<form action="/add" method="post">
+  <input type="text" name="title" placeholder="title">
+  <input type="text" name="body" placeholder="body">
+  <input type="submit" value="Add">
+</form>
+{% for word in all_onegai %}
+  <p>{{word.title}}:{{word.body}} {{word.date}}</p>
+{% endfor %}
+</body>
+</html>
