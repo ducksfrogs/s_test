@@ -29,6 +29,14 @@ def sdate():
                             Weather.date_inputed).filter(Weather.date_inputed == d_date).all()
     return render_template("s_date.html", all_cities = cityRq)
 
+@app.route('/b_date', methods=[ 'post'])
+def b_date():
+    be_date = request.form['date_be']
+    en_date = request.form['date_en']
+    cityRq = db_session.query(Weather.city, Weather.temp_hi,
+                            Weather.temp_lo, Weather.date_inputed).filter(Weather.date_inputed.between(be_date, en_date))
+
+    return render_template("b_date.html", all_cities=cityRq)
 
 
 if __name__=="__main__":
