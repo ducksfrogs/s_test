@@ -9,10 +9,6 @@
 <body>
 <h1>web app first</h1>
 
-<form action="/searchCity" method="post">
-  <input type="text" name="city" placeholder="Enter city">
-  <input type="submit" value="Add">
-</form>
 {% for city in all_cities %}
   <p>{{city.city}}:{{city.temp_lo}}</p>
 {% endfor %}
