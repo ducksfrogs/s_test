@@ -13,8 +13,12 @@
   <input type="text" name="city" placeholder="Enter city">
   <input type="submit" value="Add">
 </form>
+<form action="/s_date" method="post">
+  <input type="text" name="date" placeholder="Enter date">
+  <input type="submit" value="Add">
+</form>
 {% for city in all_cities %}
-  <p>{{city.city}}:{{city.temp_lo}}</p>
+  <p>{{city.city}}:{{city.temp_lo}} {{ city.date_inputed}}</p>
 {% endfor %}
 </body>
 </html>

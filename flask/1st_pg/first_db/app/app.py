@@ -21,5 +21,15 @@ def searchCity():
                             Weather.temp_lo).filter(Weather.city==city).all()
     return render_template("searchCity.html", all_cities=cityRq)
 
+@app.route("/s_date", methods=["post"])
+def sdate():
+    d_date = request.form["date"]
+    cityRq = db_session.query(Weather.city,
+                            Weather.temp_hi,
+                            Weather.date_inputed).filter(Weather.date_inputed == d_date).all()
+    return render_template("s_date.html", all_cities = cityRq)
+
+
+
 if __name__=="__main__":
     app.run(dubug=True)
