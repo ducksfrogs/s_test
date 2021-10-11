@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+<body>
+<h1>web app first</h1>
+
+<form action="/searchCity" method="post">
+  <input type="text" name="abc" placeholder="Enter abc">
+  <input type="submit" value="Add">
+</form>
+
+<form action="/s_date" method="post">
+  <input type="text" name="date" placeholder="Enter date">
+  <input type="submit" value="Add">
+</form>
+
+<form action="/b_date" method="post">
+  <input type="text" name="date_be" placeholder="Enter from">
+  <input type="text" name="date_en" placeholder="Enter to">
+  <input type="submit" value="Add">
+</form>
+
+{% for city in all_cities %}
+  <p>{{city.A}}:{{city.E}}</p>
+{% endfor %}
+</body>
+</html>
