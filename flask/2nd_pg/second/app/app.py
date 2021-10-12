@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from sqlalchemy import func
 from models.models import Weather
 
 from models.database import db_session
@@ -16,17 +17,13 @@ def index():
 @app.route("/searchCity", methods=["post"])
 def searchCity():
     abc = request.form["abc"] 
-    cityRq = db_session.query(Weather.A,
-                            Weather.C,
-                            Weather.B).filter(Weather.E == abc).all()
+    cityRq = db_session.query(Weather).filter(Weather.E == abc).all()
     return render_template("searchCity.html", all_cities=cityRq)
 
 @app.route("/s_date", methods=["post"])
 def sdate():
     d_date = request.form["date"]
-    cityRq = db_session.query(Weather.A,
-                            Weather.C,
-                            Weather.D).filter(Weather.D == d_date).all()
+    cityRq = db_session.query(Weather).filter(func.Date(Weather.D) == d_date).all()
     return render_template("s_date.html", all_cities = cityRq)
 
 @app.route('/b_date', methods=[ 'post'])
