@@ -7,7 +7,7 @@ DATABASE = 'postgresql'
 USER ='postgres'
 PASSWORD = '0310'
 HOST = 'localhost'
-PORT = '5432'
+PORT = '5433'
 DB_NAME = 't2'
 
 CONNECT_STR = '{}://{}:{}@{}:{}/{}'.format(DATABASE, USER, PASSWORD, HOST, PORT, DB_NAME)
