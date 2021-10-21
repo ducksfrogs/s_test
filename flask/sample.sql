@@ -21,3 +21,12 @@ CREATE TABLE weather2 (
   "D" timestamp,
   "E" varchar(1)
 )
+
+CREATE TABLE weather (
+	id serial not null,
+  "A" int,
+  "B" int,
+  "C" float,
+  "D" timestamp,
+  "E" varchar(1)
+)
