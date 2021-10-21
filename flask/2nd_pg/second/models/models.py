@@ -3,7 +3,7 @@ from models.database import Base
 
 
 class Weather(Base):
-    __tablename__ = 'weather2'
+    __tablename__ = 'weather'
     id = Column(Integer, primary_key=True)
     A = Column(Integer)
     B = Column(Integer)
