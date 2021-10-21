@@ -13,3 +13,11 @@ CREATE TABLE test_yoko (
 "VisionJudgement_All_RS_PC06" int,
 "VisionJudgement_Half_RS_PC06" int
 )
+
+CREATE TABLE weather2 (
+  "A" int,
+  "B" int,
+  "C" float,
+  "D" timestamp,
+  "E" varchar(1)
+)
